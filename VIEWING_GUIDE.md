@@ -54,10 +54,18 @@ Only proceed if `node -v` worked! Type these commands one by one, pressing Enter
    > **npm run dev**
 
 ## 4. View the Platform
-Once you see a message saying "Ready" or "Started", keep that black window open!
-1. Open your web browser (Chrome, Edge, etc.).
-2. Go to this address: **[http://localhost:3000](http://localhost:3000)**
-3. To log in, go to **[http://localhost:3000/login](http://localhost:3000/login)** and use:
+
+⚠️ **IMPORTANT:** Do NOT close the black window! The platform only works while that window is open.
+
+1. Open your web browser (Chrome, Edge, or Brave).
+2. Look at the very top of your browser (the **Address Bar**), not the search box in the middle of the page.
+3. Type this exactly and press Enter:
+   > **http://localhost:3000**
+
+4. To log in, go to this address:
+   > **http://localhost:3000/login**
+
+5. Use these details to log in:
    - **Email:** `admin@example.com`
    - **Password:** `password123`
 
