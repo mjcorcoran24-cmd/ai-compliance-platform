@@ -24,28 +24,34 @@ Now, we need to open the "black window" (Command Prompt) to start the platform. 
 When you type the commands below, **spaces are very important**. Make sure there is a space between the words (like `npm` and `install`).
 
 **Step A: Verify you have Node.js installed**
-Type this and press Enter:
-```bash
-node -v
-```
-*If you see a version number (like `v22.0.0`), you are good! If it says "not recognized", please repeat **Step 1 (Install Node.js)** and then **RESTART** GitHub Desktop.*
+Type exactly what is in the box below and press Enter (do NOT type "bash" or the backticks ` ``` `):
+> **node -v**
 
-**Step B: Install the necessary pieces**
-Type this exactly (with the space) and press Enter:
-```bash
-npm install
-```
+*If you see a version number (like `v22.0.0`), you are good!*
 
-   **Second, prepare the database:**
-   ```bash
-   npx prisma migrate dev --name init
-   node prisma/seed.js
-   ```
+⚠️ **If it says "not recognized":**
+1. Make sure you finished **Step 1 (Install Node.js)**.
+2. **Restart your computer.** This is often necessary for Windows to "see" the new tool.
+3. Open the Command Prompt again via GitHub Desktop and try typing `node -v` again.
 
-   **Finally, start the platform:**
-   ```bash
-   npm run dev
-   ```
+---
+
+💡 **Tip:** You can **Copy** the text in bold and **Paste** it into the black window by right-clicking or pressing `Ctrl + V`.
+
+**Step B: Install and Start**
+Only proceed if `node -v` worked! Type these commands one by one, pressing Enter after each:
+
+1. **Install the pieces:**
+   > **npm install**
+
+2. **Prepare the database:**
+   > **npx prisma migrate dev --name init**
+
+3. **Fill the database with data:**
+   > **node prisma/seed.js**
+
+4. **Start the platform:**
+   > **npm run dev**
 
 ## 4. View the Platform
 Once you see a message saying "Ready" or "Started", keep that black window open!
