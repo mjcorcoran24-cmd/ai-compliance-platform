@@ -43,5 +43,16 @@ Once you see a message saying "Ready" or "Started", keep that black window open!
    - **Email:** `admin@example.com`
    - **Password:** `password123`
 
+## 💡 Troubleshooting: "I need Microsoft Azure" or "Build Tools"
+If Windows shows a message asking for **Microsoft Azure** or **Visual Studio Build Tools** during `npm install`, don't worry!
+
+This usually happens because one of the components (SQLite) is trying to "build" itself on your computer.
+
+**The Easiest Fix:**
+1. Download and install the **[Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/)** (it's free).
+2. During installation, look for a checkbox that says **"Desktop development with C++"** and make sure it is checked.
+3. Finish the installation and restart your computer.
+4. Try Step 3 again!
+
 ---
 *Tip: When you are done, you can close the black window to stop the platform.*
