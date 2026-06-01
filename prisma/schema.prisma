@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("AUDITOR")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  audits    Audit[]  @relation("AuditorAudits")
+}
+
+model Framework {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  controls    Control[]
+  audits      Audit[]
+}
+
+model Control {
+  id          String       @id @default(cuid())
+  frameworkId String
+  framework   Framework    @relation(fields: [frameworkId], references: [id])
+  parentId    String?
+  parent      Control?     @relation("ControlHierarchy", fields: [parentId], references: [id])
+  children    Control[]    @relation("ControlHierarchy")
+  code        String       // e.g., GOVERN 1.1 or Annex A.5.1
+  title       String
+  description String?
+  entries     AuditEntry[]
+}
+
+model Audit {
+  id          String       @id @default(cuid())
+  name        String
+  frameworkId String
+  framework   Framework    @relation(fields: [frameworkId], references: [id])
+  auditorId   String
+  auditor     User         @relation("AuditorAudits", fields: [auditorId], references: [id])
+  status      String       @default("IN_PROGRESS")
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  entries     AuditEntry[]
+}
+
+model AuditEntry {
+  id        String       @id @default(cuid())
+  auditId   String
+  audit     Audit        @relation(fields: [auditId], references: [id])
+  controlId String
+  control   Control      @relation(fields: [controlId], references: [id])
+  status    String       @default("NOT_STARTED")
+  comments  String?
+  evidence  Evidence[]
+  updatedAt DateTime     @updatedAt
+
+  @@unique([auditId, controlId])
+}
+
+model Evidence {
+  id           String     @id @default(cuid())
+  auditEntryId String
+  auditEntry   AuditEntry @relation(fields: [auditEntryId], references: [id])
+  content      String     // URL or text description
+  type         String     // 'LINK' or 'TEXT'
+  createdAt    DateTime   @default(now())
+}
