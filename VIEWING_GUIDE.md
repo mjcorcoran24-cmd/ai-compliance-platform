@@ -14,10 +14,13 @@ The platform requires a tool called **Node.js** to run.
 3. This will open the folder containing the project files on your computer.
 
 ## 3. Start the Platform
-Now, we need to tell Windows to start the "Engine" for the platform:
-1. In the folder that just opened, click on the **Address Bar** at the top (where it shows the folder path).
-2. Type `cmd` and press **Enter**. A black window (Command Prompt) will appear.
-3. In that black window, type the following commands one by one (press Enter after each):
+Now, we need to open the "black window" (Command Prompt) to start the platform. Since you are using **GitHub Desktop**, this is very easy:
+
+1. In GitHub Desktop, go to the top menu and click **Repository**.
+2. Click **Open in Command Prompt**.
+3. A black window will appear. Type the following commands one by one (press **Enter** after each):
+
+> **Note:** If you don't see "Open in Command Prompt", you can instead click **Repository** -> **Show in Explorer**, then in the folder that opens, click the blank space at the very top (where the folder path is), type `cmd` and press **Enter**.
 
    **First, install the necessary pieces:**
    ```bash
