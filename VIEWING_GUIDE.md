@@ -18,14 +18,23 @@ Now, we need to open the "black window" (Command Prompt) to start the platform. 
 
 1. In GitHub Desktop, go to the top menu and click **Repository**.
 2. Click **Open in Command Prompt**.
-3. A black window will appear. Type the following commands one by one (press **Enter** after each):
+3. A black window will appear.
 
-> **Note:** If you don't see "Open in Command Prompt", you can instead click **Repository** -> **Show in Explorer**, then in the folder that opens, click the blank space at the very top (where the folder path is), type `cmd` and press **Enter**.
+### ⚠️ Crucial: Typing the commands
+When you type the commands below, **spaces are very important**. Make sure there is a space between the words (like `npm` and `install`).
 
-   **First, install the necessary pieces:**
-   ```bash
-   npm install
-   ```
+**Step A: Verify you have Node.js installed**
+Type this and press Enter:
+```bash
+node -v
+```
+*If you see a version number (like `v22.0.0`), you are good! If it says "not recognized", please repeat **Step 1 (Install Node.js)** and then **RESTART** GitHub Desktop.*
+
+**Step B: Install the necessary pieces**
+Type this exactly (with the space) and press Enter:
+```bash
+npm install
+```
 
    **Second, prepare the database:**
    ```bash
